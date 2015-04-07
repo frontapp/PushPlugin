@@ -10,10 +10,11 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
 import com.google.android.gcm.GCMBaseIntentService;
+
+import com.frontapp.cordova.R;
 
 @SuppressLint("NewApi")
 public class GCMIntentService extends GCMBaseIntentService {
@@ -98,10 +99,11 @@ public class GCMIntentService extends GCMBaseIntentService {
 			} catch (NumberFormatException e) {}
 		}
 		
-		NotificationCompat.Builder mBuilder =
-			new NotificationCompat.Builder(context)
+		Notification.Builder mBuilder =
+			new Notification.Builder(context)
 				.setDefaults(defaults)
-				.setSmallIcon(context.getApplicationInfo().icon)
+				.setSmallIcon(R.drawable.notification_icon_small)
+				.setColor(context.getResources().getColor(R.color.push_accent))
 				.setWhen(System.currentTimeMillis())
 				.setContentTitle(extras.getString("title"))
 				.setTicker(extras.getString("title"))
