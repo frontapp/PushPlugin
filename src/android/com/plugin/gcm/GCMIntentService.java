@@ -103,12 +103,16 @@ public class GCMIntentService extends GCMBaseIntentService {
 			new Notification.Builder(context)
 				.setDefaults(defaults)
 				.setSmallIcon(R.drawable.notification_icon_small)
-				.setColor(context.getResources().getColor(R.color.push_accent))
 				.setWhen(System.currentTimeMillis())
 				.setContentTitle(extras.getString("title"))
 				.setTicker(extras.getString("title"))
 				.setContentIntent(contentIntent)
 				.setAutoCancel(true);
+
+		// Make sure we're running on Android 5 before we set a color.
+	    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+			mBuilder.setColor(context.getResources().getColor(R.color.push_accent))
+	    }
 
 		String message = extras.getString("message");
 		if (message != null) {
