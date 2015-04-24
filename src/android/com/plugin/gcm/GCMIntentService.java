@@ -111,7 +111,7 @@ public class GCMIntentService extends GCMBaseIntentService {
 
 		// Make sure we're running on Android 5 before we set a color.
 	    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-			mBuilder.setColor(context.getResources().getColor(R.color.push_accent))
+			mBuilder.setColor(context.getResources().getColor(R.color.push_accent));
 	    }
 
 		String message = extras.getString("message");
