@@ -14,8 +14,7 @@ import android.os.Build;
 import android.util.Log;
 
 import com.google.android.gcm.GCMBaseIntentService;
-
-import com.frontapp.cordova.R;
+import com.frontapp.mobile.R;
 
 @SuppressLint("NewApi")
 public class GCMIntentService extends GCMBaseIntentService {
